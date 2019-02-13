@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1 id="bigWords">Eat-Da-Burger!</h1>
+    </div>
+</div>
+
+
+<div class="container border-left border-right">
+    <div class="row">
+        <div class="col">
+            {{#each burgers}}
+                {{#unless this.devoured}}
+                    <div>
+                        <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                            <button type="submit" class="btn btn-danger"> {{this.burger_name}}</button>
+                        </form>
+                    </div>
+                {{/unless}}
+            {{/each}}
+        </div>
+
+        <div class="col">
+            {{#each burgers}}
+                {{#if this.devoured}}
+                    <div>
+                        <div>
+                        {{this.burger_name}}
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+
+
+
+    <div class="row" id="addABurger">
+        <div class="col d-flex justify-content-center">
+            <h2 id="bigWords">Add A Burger Option</h2>
+        </div>
+    </div>
+
+    <div class="row" id="addMe">
+        <div class="col d-flex justify-content-center">
+            <form action="/burgers" method="POST">
+                <input type="text" id="name" name="burger_name" placeholder="Insert Burger Here">
+                <button type="submit" class="btn btn-primary">Add A Burger</button>
+            </form>
+        </div>
+    </div>
+</div>
