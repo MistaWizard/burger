@@ -11,9 +11,13 @@
             {{#each burgers}}
                 {{#unless this.devoured}}
                     <div>
-                        <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-                            <button type="submit" class="btn btn-danger"> {{this.burger_name}}</button>
-                        </form>
+                        <ul>
+                            <li>
+                                <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                                    <button type="submit" class="btn btn-danger"> {{this.burger_name}}</button>
+                                </form>
+                            </li>
+                        </ul>
                     </div>
                 {{/unless}}
             {{/each}}
